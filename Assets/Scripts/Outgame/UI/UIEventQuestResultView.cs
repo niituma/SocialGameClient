@@ -1,17 +1,12 @@
-Ôªøusing Cysharp.Threading.Tasks;
 using MD;
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Outgame
 {
-    public class UIQuestResultView : UIStackableView
+    public class UIEventQuestResultView : UIStackableView
     {
         [SerializeField] GameObject _root;
         [SerializeField] GameObject _rewardPrefab;
@@ -20,7 +15,7 @@ namespace Outgame
 
         protected override void AwakeCall()
         {
-            ViewId = ViewID.QuestResult;
+            ViewId = ViewID.EventQuestResult;
             _hasPopUI = false;
 
             CreateView();
@@ -34,17 +29,17 @@ namespace Outgame
                 case RewardItemType.None: break;
                 case RewardItemType.Card: ret = MasterData.GetLocalizedText(MasterData.GetCard(int.Parse(reward.param[0])).Name); break;
                 case RewardItemType.Money: ret = string.Format("{0}Money", int.Parse(reward.param[0])); break;
-                case RewardItemType.Item: ret = string.Format("{0}{1}„Å§", MasterData.GetLocalizedText(MasterData.GetItem(int.Parse(reward.param[0])).Name), int.Parse(reward.param[1])); break;
+                case RewardItemType.Item: ret = string.Format("{0}{1}Ç¬", MasterData.GetLocalizedText(MasterData.GetItem(int.Parse(reward.param[0])).Name), int.Parse(reward.param[1])); break;
 
-                //TODO: „Ç§„Éô„É≥„Éà„Éù„Ç§„É≥„Éà
-                case RewardItemType.EventPoint: ret = string.Format("{0}„Éù„Ç§„É≥„Éà", int.Parse(reward.param[0])); break;
+                //TODO: ÉCÉxÉìÉgÉ|ÉCÉìÉg
+                case RewardItemType.EventPoint: ret = string.Format("{0}É|ÉCÉìÉg", int.Parse(reward.param[0])); break;
             }
             return ret;
         }
 
         void CreateView()
         {
-            var package = SequenceBridge.GetSequencePackage<QuestPackage>("Quest");
+            var package = SequenceBridge.GetSequencePackage<QuestPackage>("EventQuest");
 
             foreach (var reward in package?.QuestResult?.rewards)
             {
@@ -54,10 +49,10 @@ namespace Outgame
                 var rewardObj = GameObject.Instantiate(_rewardPrefab, _root.transform);
                 var text = rewardObj.GetComponent<TextMeshProUGUI>();
 
-                text.text = string.Format("{0}„ÇíÊâã„Å´ÂÖ•„Çå„Åü", GetRewardObjectString(reward));
+                text.text = string.Format("{0}ÇéËÇ…ì¸ÇÍÇΩ", GetRewardObjectString(reward));
             }
 
-            SequenceBridge.DeleteSequence("Quest");
+            SequenceBridge.DeleteSequence("EventQuest");
         }
 
         public void GoHome()

@@ -25,5 +25,8 @@ namespace Outgame
         CardInfo,
 
         Event = 10000,
+        EventQuest = 10100,
+        EventQuestResult = 10200,
+        EventRanking = 10300,
     }
 }

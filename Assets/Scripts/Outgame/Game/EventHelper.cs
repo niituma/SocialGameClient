@@ -9,6 +9,10 @@ namespace Outgame
 {
     public class EventHelper
     {
+        static public int CurrentEventID { get; private set; } = 0;
+
+        static public void SetCurrentEventID(int eventID) { CurrentEventID = eventID; }
+
         /// <summary>
         /// 開催中のイベントを取得
         /// </summary>
@@ -17,7 +21,7 @@ namespace Outgame
             List<int> ret = new List<int>();
             foreach (var evt in MasterData.Events)
             {
-                if(IsEventOpen(evt.Id))
+                if (IsEventOpen(evt.Id))
                 {
                     ret.Add(evt.Id);
                 }

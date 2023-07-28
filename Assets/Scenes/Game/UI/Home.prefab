@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isActive: 1
+  _eventButton: {fileID: 5074850559722361156}
 --- !u!1 &2702447535103527814
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +907,8 @@ GameObject:
   - component: {fileID: 181917654698148764}
   - component: {fileID: 6364430815911037913}
   - component: {fileID: 7724450638202230580}
+  - component: {fileID: 1485515768652645744}
+  - component: {fileID: 5074850559722361156}
   m_Layer: 5
   m_Name: EventHome
   m_TagString: Untagged
@@ -1015,19 +1018,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 181917654698148764}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5374111005199522437}
-        m_TargetAssemblyTypeName: Outgame.UIHomeView, Assembly-CSharp
-        m_MethodName: GoEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &7724450638202230580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,6 +1033,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 2172916701932895553}
   _textKey: UIEvent
+--- !u!225 &1485515768652645744
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4844636907801247759}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &5074850559722361156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4844636907801247759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea95d10781bfcca43a9e001d8e4a6d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isActive: 0
 --- !u!1 &7073237317818736334
 GameObject:
   m_ObjectHideFlags: 0
